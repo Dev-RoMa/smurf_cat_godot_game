@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://accesorios/scenes/info/INFO.gd" type="Script" id=1]
+
+[node name="info" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 123.0
+margin_top = 38.0
+margin_right = 870.0
+margin_bottom = 388.0
+text = "USE THE ARROW KEYS TO MOVE
+<-
+->
+
+USE THE UP ARROW KEY TO JUMP
+
+U END THE GAME AT THE END LEVEL"
+readonly = true
+
+[node name="button_ok" type="Button" parent="."]
+margin_left = 474.0
+margin_top = 498.0
+margin_right = 564.0
+margin_bottom = 558.0
+text = "OK"
+
+[connection signal="pressed" from="button_ok" to="." method="_on_button_ok_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://accesorios/scenes/main_menu/main_menu.gd" type="Script" id=1]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="button_start" type="Button" parent="."]
+margin_left = 373.0
+margin_top = 195.0
+margin_right = 625.0
+margin_bottom = 215.0
+text = "start"
+
+[node name="button_about" type="Button" parent="."]
+margin_left = 373.0
+margin_top = 320.0
+margin_right = 625.0
+margin_bottom = 340.0
+text = "about"
+
+[node name="button_exit" type="Button" parent="."]
+margin_left = 373.0
+margin_top = 446.0
+margin_right = 625.0
+margin_bottom = 466.0
+text = "exit"
+
+[connection signal="pressed" from="button_start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="button_about" to="." method="_on_button_about_pressed"]
+[connection signal="pressed" from="button_exit" to="." method="_on_button_exit_pressed"]
