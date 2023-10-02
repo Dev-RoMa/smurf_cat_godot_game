@@ -71,3 +71,5 @@ position = Vector2( -510, -326 )
 rotation = 1.5708
 scale = Vector2( 1.0161, 1.25024 )
 texture = ExtResource( 1 )
+
+[node name="BGROUND" type="Sprite" parent="."]

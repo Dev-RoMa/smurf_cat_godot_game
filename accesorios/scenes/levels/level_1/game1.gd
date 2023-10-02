@@ -30,3 +30,7 @@ func _on_area_start_body_entered(body):
 func _on_area_reset_body_entered(body):
 	print("player fell onto lego city!")
 	emit_signal("reset")
+
+
+func _on_player_reset_level():
+	get_tree().change_scene("res://accesorios/scenes/level/level_1/level_1.tscn")

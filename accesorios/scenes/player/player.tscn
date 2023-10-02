@@ -1,10 +1,59 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://accesorios/sprites/player/anim.png" type="Texture" id=1]
 [ext_resource path="res://accesorios/scenes/player/player.gd" type="Script" id=2]
+[ext_resource path="res://accesorios/sfx/player/jump/sfx_jump.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 8 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "player_jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "player_walking"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 4, 3, 4, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -16,8 +65,18 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 4
+frame = 1
+
+[node name="Sprite_static" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/player_jump = SubResource( 5 )
+anims/player_walking = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -100 )
@@ -30,3 +89,14 @@ margin_top = -149.0
 margin_right = -132.0
 margin_bottom = -123.0
 readonly = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2( 0.7, 0.8 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

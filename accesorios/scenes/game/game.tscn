@@ -14,6 +14,15 @@
 [node name="game" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 146.0
+margin_top = 475.0
+margin_right = 358.0
+margin_bottom = 516.0
+text = "USE THE ARROWS TO MOVE
+                   <- | ->"
+readonly = true
+
 [node name="ground_level" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 590 )
 
@@ -48,3 +57,4 @@ position = Vector2( 50, 100 )
 [connection signal="body_entered" from="area_start" to="." method="_on_area_start_body_entered"]
 [connection signal="body_entered" from="area_end" to="." method="_on_area_end_body_entered"]
 [connection signal="body_entered" from="area_reset" to="." method="_on_area_reset_body_entered"]
+[connection signal="reset_level" from="player" to="." method="_on_player_reset_level"]
