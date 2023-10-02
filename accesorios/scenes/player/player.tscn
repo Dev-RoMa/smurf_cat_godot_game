@@ -20,5 +20,13 @@ vframes = 4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -100 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -254.0
+margin_top = -149.0
+margin_right = -132.0
+margin_bottom = -123.0
+readonly = true

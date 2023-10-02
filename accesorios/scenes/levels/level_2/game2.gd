@@ -22,8 +22,8 @@ func _on_area_end_body_entered(body):
 		print("either change level or end game")
 		#get_tree().change_scene("res://accesorios/scenes/level/level_1/level_1.tscn")
 		#get_tree().change_scene("res://accesorios/scenes/main_menu/main_menu.tscn")
-		get_tree().change_scene("res://accesorios/scenes/levels/level_1/game1.tscn")
-		
+		#get_tree().change_scene("res://accesorios/scenes/levels/level_1/game1.tscn")
+		get_tree().change_scene("res://accesorios/scenes/info/PreAlphaEnding.tscn")
 
 func _on_area_start_body_entered(body):
 	print("starting area!")

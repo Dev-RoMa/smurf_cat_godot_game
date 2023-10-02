@@ -2,16 +2,24 @@ extends KinematicBody2D
 
 # Constants
 const GRAVITY = 800.0
-const JUMP_FORCE = -400.0
+const JUMP_FORCE = -250.0
 const MOVE_SPEED = 200.0
 
 # Declare member variables here.
 var velocity = Vector2()
 var is_jumping = false
+onready var timer: TextEdit = $TextEdit
+var elapsed_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass  # Replace with function body.
+
+func _process(delta):
+	elapsed_time += delta
+	# Update the timer display
+	timer.text = str(elapsed_time)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -48,5 +56,5 @@ func _physics_process(delta):
 # Add any additional functions or logic you need here.
 
 func _on_game_reset():
-	position.x = 200
+	position.x = 20
 	position.y = 50

@@ -16,7 +16,11 @@ text = "USE THE ARROW KEYS TO MOVE
 
 USE THE UP ARROW KEY TO JUMP
 
-U END THE GAME AT THE END LEVEL"
+U END THE GAME AT THE END LEVEL
+
+MADE BY SKC/ROMA_DEV; THIS IS JUST A MEME GAME
+
+DO NOT TAKE SRSLY"
 readonly = true
 
 [node name="button_ok" type="Button" parent="."]
